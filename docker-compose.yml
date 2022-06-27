@@ -1,0 +1,47 @@
+version: '3.5'
+services:
+    node:
+        container_name: container-${NAME_VARIABLE}-${VERSION_VARIABLE}
+        # base image
+        image: ${IMAGE}
+        # interactive shell
+        stdin_open: true
+        tty: true
+        # volumes to attach
+        volumes:
+            - .:/root/project
+        networks:
+            - isolated
+        environment:
+            DEBUG_COLORS: "true"
+            TERM: xterm-256color
+            COLORTERM: truecolor
+    mongo:
+        container_name: container-mongodb-${NAME_VARIABLE}-${VERSION_VARIABLE}
+        # base image
+        image: mongo
+        # interactive shell
+        stdin_open: true
+        tty: true
+        ports:
+            - "27017:27017"
+        # volumes to attach
+        volumes:
+            - ./test/integration/resources/docker-scripts:/docker-entrypoint-initdb.d:ro
+        networks:
+            - isolated
+        restart: always
+        hostname: mongodb.dev-ngcs.com.schlund.de
+        environment:
+            DEBUG_COLORS: "true"
+            TERM: xterm-256color
+            COLORTERM: truecolor
+            MONGO_INITDB_ROOT_USERNAME: ngcs
+            MONGO_INITDB_ROOT_PASSWORD: ARSYS
+            MONGO_INITDB_DATABASE: TestDB
+
+networks:
+  isolated:
+    name: isolated-network-${NAME_VARIABLE}-${VERSION_VARIABLE}
+    driver: bridge
+    internal: true
