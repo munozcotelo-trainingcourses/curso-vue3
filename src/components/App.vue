@@ -10,6 +10,7 @@
 
 <template>
     <div>
-        Hello from App
+        <h1>Hello world!!</h1>
+        <p>Good bye</p>
     </div>
 </template>
