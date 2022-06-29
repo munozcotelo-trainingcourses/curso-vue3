@@ -4,7 +4,16 @@
 
     export default vue.defineComponent( {
         name : "ComponenteH1",
-    } );
+
+        beforeCreate() {
+            console.info( "ComponenteH1 - Before create hook" );
+        },
+
+        created : () => {
+            console.info( "ComponenteH1 - Before created" );
+        }
+
+} );
 
 </script>
 
