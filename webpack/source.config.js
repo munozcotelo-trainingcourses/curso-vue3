@@ -1,7 +1,7 @@
-const merge             = require( "webpack-merge" );
-const TerserPlugin      = require( "terser-webpack-plugin" );
-const ManifestPlugin    = require( "webpack-manifest-plugin" );
-const HtmlWebpackPlugin = require( "html-webpack-plugin" );
+const { merge }                 = require( "webpack-merge" );
+const TerserPlugin              = require( "terser-webpack-plugin" );
+const { WebpackManifestPlugin } = require( "webpack-manifest-plugin" );
+const HtmlWebpackPlugin         = require( "html-webpack-plugin" );
 
 const baseConfig = require( "./base.config.js" );
 const manifestConfiguration = require( "./manifestFiles.js" );
@@ -16,7 +16,7 @@ const mergedConfiguration = merge( baseConfig, {
     // devtool: "hidden-source-map",
 
     /* Funciona */
-    devtool : "cheap-module-eval-source-map",
+    devtool : "eval-cheap-module-source-map",
     // devtool : "eval-source-map",
 
     /* Ha dejado de funcionar */
@@ -39,12 +39,12 @@ const mergedConfiguration = merge( baseConfig, {
             new TerserPlugin( {
 
                 test          : /\.js($|\?)/i,
-                cache         : true,
                 exclude       : /\/node_modules/,
-                parallel      : true, sourceMap     : true,
+                parallel      : true,
                 terserOptions : {
 
                     warnings : false,
+                    sourceMap     : true,
                     compress : {
                         drop_console : false,
                     },
@@ -72,7 +72,7 @@ const mergedConfiguration = merge( baseConfig, {
 
         } ),
 
-        new ManifestPlugin( {
+        new WebpackManifestPlugin( {
 
             fileName : "source-manifest.json",
             generate : manifestConfiguration.generateFunction,
