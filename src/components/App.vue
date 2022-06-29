@@ -2,15 +2,29 @@
 
     import * as vue from "vue";
 
+    import ComponenteH1 from "./ComponenteH1.vue";
+    import ComponenteP  from "./ComponenteP.vue";
+
     export default vue.defineComponent( {
-        name : "App",
+
+        name       : "App",
+        components : {
+
+            ComponenteH1 : ComponenteH1,
+            ComponenteP  : ComponenteP,
+        },
+
     } );
 
 </script>
 
 <template>
+
     <div>
-        <h1>Hello world!!</h1>
-        <p>Good bye</p>
+
+        <ComponenteH1/>
+        <ComponenteP/>
+
     </div>
+
 </template>
