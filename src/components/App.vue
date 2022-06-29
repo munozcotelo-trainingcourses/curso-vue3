@@ -22,8 +22,8 @@
 
     <div>
 
-        <ComponenteH1/>
-        <ComponenteP/>
+        <ComponenteH1 text="Hello world (prop)!!" />
+        <ComponenteP text="Good bye (prop)"> </ComponenteP>
 
     </div>
 
