@@ -22,8 +22,8 @@
     <div>
         <p>Hello from App</p>
 
-        <UnComponente/>
-        <AComponente></AComponente>
+        <UnComponente aText="Soy un texto" aNumber="5"/>
+        <AComponente aText="Soy otro texto" aNumber="50"></AComponente>
 
     </div>
 
