@@ -5,6 +5,8 @@
     import ComponenteH1 from "./ComponenteH1.vue";
     import ComponenteP  from "./ComponenteP.vue";
 
+    import { IUserDTO } from "./../dto/IUserDTO.class";
+
     export default vue.defineComponent( {
 
         name       : "App",
@@ -12,6 +14,14 @@
 
             ComponenteH1 : ComponenteH1,
             ComponenteP  : ComponenteP,
+        },
+
+        data() {
+
+            return {
+                userOne : { name : "Pepito", surname : "Perez", age : 20, } as IUserDTO,
+            };
+
         },
 
     } );
@@ -23,7 +33,7 @@
     <div>
 
         <ComponenteH1 text="Hello world (prop)!!" />
-        <ComponenteP text="Good bye (prop)"> </ComponenteP>
+        <ComponenteP text="Good bye (prop)" v-bind:user=userOne> </ComponenteP>
 
     </div>
 
