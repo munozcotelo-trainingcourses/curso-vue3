@@ -17,6 +17,7 @@
 
             return {
                 contador : 0,
+                clicks : 0,
             };
 
         },
@@ -29,7 +30,15 @@
                 this.contador +=1;
             }, 2000 );
 
-        }
+        },
+
+        methods : {
+
+            userClick() {
+                this.clicks +=1;
+            },
+
+        },
 
     } );
 
@@ -42,6 +51,8 @@
         <p>Hello from App</p>
 
         <p>Mis propios datos: contador = {{ contador }}</p>
+
+        <p>Clicks del usuario: {{ clicks }}<button v-on:click="userClick()">Haz click</button></p>
 
         <UnComponente aText="Soy un texto" aNumber="5"/>
         <AComponente aText="Soy otro texto" aNumber="50"></AComponente>
