@@ -24,7 +24,11 @@
         },
 
         created : function () {
-            console.info( "UnComponente created" );
+
+            console.info( "UnComponente created"  );
+            console.info( "UnComponente created props", this.$props,  );
+            console.info( "UnComponente created aText", this.aText,  );
+
         },
 
     } );
