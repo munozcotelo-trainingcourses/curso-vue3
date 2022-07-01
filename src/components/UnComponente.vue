@@ -17,7 +17,17 @@
 
             aNumber : Number as vue.PropType<number>,
 
+        },
+
+        computed : {
+
+            aTextReversed () {
+
+                return this.aText.split( "" ).reverse().join( "" );
+
             },
+
+        },
 
         beforeCreate() {
             console.info( "UnComponente beforeCreate" );
@@ -42,6 +52,8 @@
         Soy un componente
         <p>Propiedad aText: {{ aText }}</p>
         <p>Propiedad aNumber: {{ aNumber }}</p>
+
+        <p> La propiedad aText <strong>al reves</strong>: {{ aTextReversed }}</p>
 
     </div>
 
