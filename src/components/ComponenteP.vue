@@ -22,6 +22,24 @@
 
         },
 
+        data() {
+
+            return {
+
+                todojunto : "",
+
+            };
+
+        },
+
+        methods : {
+
+            doLogic() {
+                this.todojunto = `${ this.user.name }_${ this.user.surname }_${ this.user.age}_${ Math.random() }`;
+            },
+
+        },
+
         beforeCreate() {
             console.info( "ComponenteP - Before create hook" );
         },
@@ -45,6 +63,10 @@
             <p>Name : {{ user.name }}</p>
             <p>Surname : {{ user.surname }}</p>
             <p>Age : {{ user.age }}</p>
+
+            <p>TodoJunto: {{ todojunto }}</p>
+
+            <button v-on:click="doLogic()">Click aqui</button>
 
         </div>
 
