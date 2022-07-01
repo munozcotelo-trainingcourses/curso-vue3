@@ -67,6 +67,7 @@
             <p>TodoJunto: {{ todojunto }}</p>
 
             <button v-on:click="doLogic()">Click aqui</button>
+            <p>Todo junto <strong>en la plantilla</strong>{{ `${ this.user.name }_${ this.user.surname }_${ this.user.age}_${ Math.random() }` }}</p>
 
         </div>
 
