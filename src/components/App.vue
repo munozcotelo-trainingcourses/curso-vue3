@@ -13,7 +13,7 @@
             AComponente  : UnComponente,
         },
 
-        data() {
+        data() : Record<string, unknown> {
 
             return {
                 contador : 0,
@@ -22,7 +22,7 @@
 
         },
 
-        created() {
+        created() : void {
 
             console.info( "App created, data: ", this.$data  );
 
@@ -34,7 +34,7 @@
 
         methods : {
 
-            userClick() {
+            userClick() : void {
                 this.clicks +=1;
             },
 
