@@ -26,6 +26,9 @@
                 variable1 : "variable1 is a text",
                 variable2 : 25,
 
+                question : "",
+                answer   : "",
+
             };
 
         },
@@ -52,6 +55,37 @@
                     this.variable2 = parseInt( parts[ 1 ] );
 
                 }
+
+            },
+
+        },
+
+        watch : {
+
+            question( newQuestion : string, oldQuestion : string ) : void {
+
+                console.info( "Observando la propiedad question" );
+                console.info( `oldQuestion: ${ oldQuestion }` );
+                console.info( `newQuestion: ${ newQuestion }` );
+
+                if ( newQuestion.indexOf( "?" ) > -1 ) {
+                    this.getAnswer();
+                } else if ( newQuestion === "" ) {
+                    this.answer = "";
+                }
+
+            },
+
+        },
+
+        methods : {
+
+            getAnswer() : void {
+
+                this.answer = "Esperando respuesta del API...";
+                setTimeout( () => {
+                    this.answer = `Respuesta from API ${ Math.random() }`;
+                }, 1500 );
 
             },
 
@@ -92,6 +126,14 @@
             <p>variable1 : {{ variable1 }}</p>
             <p>variable2 : {{ variable2 }}</p>
             <p>Variable computada <strong>con get y set</strong>: {{ fullVariable }}</p>
+        </div>
+
+        <div>
+            <label for="question">Question: </label>
+            <input name="question" type="text" v-model="question"/>
+
+            <br/>
+            <p>Answer: {{ answer }}</p>
         </div>
 
     </div>
