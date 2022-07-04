@@ -54,8 +54,8 @@
 
         <p>Clicks del usuario: {{ clicks }}<button v-on:click="userClick()">Haz click</button></p>
 
-        <UnComponente aText="Soy un texto" aNumber="5"/>
-        <AComponente aText="Soy otro texto" aNumber="50"></AComponente>
+        <UnComponente aText="Soy un texto" v-bind:aNumber="5"/>
+        <AComponente aText="Soy otro texto" v-bind:aNumber="50"></AComponente>
 
     </div>
 
