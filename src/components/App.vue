@@ -3,7 +3,8 @@
     import * as vue from "vue";
 
     // import UnComponente from "./UnComponente.vue";
-    import Renderizado from "./Renderizado.vue";
+    // import Renderizado from "./Renderizado.vue";
+    import Eventos from "./Eventos.vue";
 
     export default vue.defineComponent( {
         name : "App",
@@ -12,7 +13,8 @@
 
             // UnComponente : UnComponente,
             // AComponente  : UnComponente,
-            Renderizado  : Renderizado,
+            // Renderizado  : Renderizado,
+            Eventos  : Eventos,
         },
 
         data() : Record<string, unknown> {
@@ -75,21 +77,24 @@
 
         <!-- <p>Mis propios datos: contador = {{ contador }}</p> -->
 
-        <p v-bind:[atributo]="`element-${ titulo }`">
-            Clicks del usuario: {{ clicks }}
-            <strong><span v-bind:title="`titulo-${ titulo }`">coloca el raton encima para ver el title. Quita y pon para ver que cambia</span></strong>
-            <button v-on:click="userClick()"> Haz click</button>
-        </p>
-        <p>
-            El atributo del parrafo anterior es {{ atributo }} <strong>Mira en el inspector de elemento para comprobar el cambio</strong>
-            <br/>
-            <button v-on:click="changeAtributo()">Click para cambiar el atributo</button>
-        </p>
+        <!-- <p v-bind:[atributo]="`element-${ titulo }`"> -->
+        <!--     Clicks del usuario: {{ clicks }} -->
+        <!--     <strong><span v-bind:title="`titulo-${ titulo }`">coloca el raton encima para ver el title. Quita y pon para ver que cambia</span></strong> -->
+        <!--     <button v-on:click="userClick()"> Haz click</button> -->
+        <!-- </p> -->
+        <!-- <p> -->
+        <!--     El atributo del parrafo anterior es {{ atributo }} <strong>Mira en el inspector de elemento para comprobar el cambio</strong> -->
+        <!--     <br/> -->
+        <!--     <button v-on:click="changeAtributo()">Click para cambiar el atributo</button> -->
+        <!-- </p> -->
+
+        <!-- <p>Clicks del usuario: {{ clicks }}<button v-on:click="userClick()"> Haz click</button></p> -->
 
         <!-- <UnComponente aText="Soy un texto" v-bind:aNumber="5"/> -->
         <!-- <AComponente aText="Soy otro texto" v-bind:aNumber="50"></AComponente> -->
 
-        <Renderizado v-bind:verdadero=booleano />
+        <!-- <Renderizado v-bind:verdadero=booleano /> -->
+        <Eventos />
 
     </div>
 
