@@ -4,6 +4,7 @@
 
     import ComponenteH1 from "./ComponenteH1.vue";
     import ComponenteP  from "./ComponenteP.vue";
+    import Watch        from "./Watch.vue";
 
     import { IUserDTO } from "./../dto/IUserDTO.class";
 
@@ -14,6 +15,7 @@
 
             ComponenteH1 : ComponenteH1,
             ComponenteP  : ComponenteP,
+            Watch        : Watch,
         },
 
         data() {
@@ -32,8 +34,10 @@
 
     <div>
 
-        <ComponenteH1 text="Hello world (prop)!!" />
-        <ComponenteP text="Good bye (prop)" v-bind:user=userOne> </ComponenteP>
+        <!-- <ComponenteH1 text="Hello world (prop)!!" /> -->
+        <!-- <ComponenteP text="Good bye (prop)" v-bind:user=userOne> </ComponenteP> -->
+
+        <Watch />
 
     </div>
 
