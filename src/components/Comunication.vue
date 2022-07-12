@@ -16,6 +16,12 @@
 
             },
 
+            callback : {
+
+                type     : Function as vue.PropType<( ( data : number ) => void )>,
+                required : true,
+            },
+
         },
 
         emit : [ "evento_sumado" ],
@@ -46,9 +52,15 @@
 
             sumar( event : Event ) : void {
 
-                this.contador += this.sumando;
+                this.doSuma();
                 this.$emit( "evento_sumado", this.contador );
 
+            },
+
+            callbackWrapper() : void {
+
+                this.doSuma();
+                Reflect.apply( this.callback, null, [ this.contador ] );
             },
 
         },
@@ -56,8 +68,9 @@
         // beforeCreate() : void {
         // },
 
-        // created  () : void {
-        // },
+        created  () : void {
+            console.info( this.$props );
+        },
 
     } );
 
@@ -68,12 +81,22 @@
     <div>
 
         <h2>Eventos</h2>
+
         <div>
 
             <h3>Comunicacion por eventos <em>nativos</em></h3>
             <button v-on:click="sumar">Sumar (evento en codigo)</button>
             <br/>
             <button v-on:click="$emit( 'evento_sumado', doSuma() )">Sumar (evento en plantilla)</button>
+
+        </div>
+
+        <div>
+
+            <h3>Comunicacion por callback </h3>
+            <button v-on:click="callback( doSuma() )">Sumar (callback en codigo)</button>
+            <br/>
+            <button v-on:click="callbackWrapper">Sumar (callback con wrapper)</button>
 
         </div>
 

@@ -67,6 +67,7 @@
             },
 
             updateSuma( data : number ) : void {
+                console.info( "this", this );
                 this.suma = data;
             },
 
@@ -105,7 +106,8 @@
         <!-- <Eventos /> -->
 
         <p>Suma : {{ suma }}</p>
-        <Comunication v-bind:sumando="2" v-on:evento_sumado="updateSuma" />
+
+        <Comunication v-bind:sumando="2" v-on:evento_sumado="updateSuma" v-bind:callback="updateSuma" />
 
     </div>
 
