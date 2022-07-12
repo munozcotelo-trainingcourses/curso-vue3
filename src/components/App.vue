@@ -38,6 +38,28 @@
 
         },
 
+        methods : {
+
+            toDelete( id : number ) : void {
+
+                console.info( "App, toDelete", id );
+                this.todos = this.todos.filter( ( todo : ITodoDTO ) => {
+                   return todo.id !== id
+                } );
+
+            },
+
+            toComplete( id : number ) : void {
+
+                console.info( "App, toComplete", id );
+                this.todos.find( ( todo : ITodoDTO ) => {
+                   return todo.id === id
+                } ).completed = true;
+
+            },
+
+        },
+
     } );
 
 </script>
@@ -50,7 +72,8 @@
         <!-- <ComponenteP text="Good bye (prop)" v-bind:user=userOne> </ComponenteP> -->
 
         <ComponenteH1 text="Aplicacion de Todos" />
-        <ListaTodo v-bind:todos="todos" />
+
+        <ListaTodo v-bind:todos="todos" v-on:todo_complete="toComplete"  v-on:todo_delete="toDelete" />
 
     </div>
 

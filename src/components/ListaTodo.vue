@@ -25,11 +25,27 @@
 
         },
 
-        beforeCreate() {
+        emit : [ "todo_complete", "todo_delete" ],
+
+        methods : {
+
+            toDelete( id : number ) : void {
+                console.info( "ListaTodo, todo_delete", id );
+                this.$emit( "todo_delete", id );
+            },
+
+            toComplete( id : number ) : void {
+                console.info( "ListaTodo, todo_complete", id );
+                this.$emit( "todo_complete", id );
+            },
+
         },
 
-        created : () => {
-        }
+        // beforeCreate() {
+        // },
+
+        // created : () => {
+        // }
 
     } );
 
@@ -55,7 +71,7 @@
 
         <tbody>
 
-            <FilaListaTodo v-for="(todo, index) in todos" v-bind:key="index" v-bind:todo="todo" />
+            <FilaListaTodo v-for="(todo, index) in todos" v-bind:key="index" v-bind:todo="todo" v-on:todo_complete="toComplete"  v-on:todo_delete="toDelete" />
 
             <!-- <template v-for="(todo, index) in todos" v-bind:key="index"> -->
             <!-- <tr> -->

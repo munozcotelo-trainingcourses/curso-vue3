@@ -27,13 +27,15 @@
 
         },
 
+        emit : [ "todo_complete", "todo_delete" ],
+
         methods : {
 
             toDelete() : void {
-                console.info( "A borrar el elemento ", this.todo );
+                this.$emit( "todo_delete", this.todo.id );
             },
             toComplete() : void {
-                console.info( "A completar el elemento ", this.todo );
+                this.$emit( "todo_complete", this.todo.id );
             }
 
         },
