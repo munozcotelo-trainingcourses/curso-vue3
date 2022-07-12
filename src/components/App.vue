@@ -4,7 +4,8 @@
 
     // import UnComponente from "./UnComponente.vue";
     // import Renderizado from "./Renderizado.vue";
-    import Eventos from "./Eventos.vue";
+    // import Eventos from "./Eventos.vue";
+    import Comunication from "./Comunication.vue";
 
     export default vue.defineComponent( {
         name : "App",
@@ -14,7 +15,8 @@
             // UnComponente : UnComponente,
             // AComponente  : UnComponente,
             // Renderizado  : Renderizado,
-            Eventos  : Eventos,
+            // Eventos  : Eventos,
+            Comunication  : Comunication,
         },
 
         data() : Record<string, unknown> {
@@ -25,6 +27,7 @@
                 clicks      : 0,
                 titulo      : 0,
                 atributo    : "id",
+                suma        : 0,
 
             };
 
@@ -63,6 +66,10 @@
                 this.atributo = ( this.atributo === "id" ) ? "class" : "id"
             },
 
+            updateSuma( data : number ) : void {
+                this.suma = data;
+            },
+
         },
 
     } );
@@ -94,7 +101,11 @@
         <!-- <AComponente aText="Soy otro texto" v-bind:aNumber="50"></AComponente> -->
 
         <!-- <Renderizado v-bind:verdadero=booleano /> -->
-        <Eventos />
+
+        <!-- <Eventos /> -->
+
+        <p>Suma : {{ suma }}</p>
+        <Comunication v-bind:sumando="2" v-on:evento_sumado="updateSuma" />
 
     </div>
 
