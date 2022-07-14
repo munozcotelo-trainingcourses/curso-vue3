@@ -2,21 +2,29 @@
 
     import * as vue from "vue";
 
-    // import UnComponente from "./UnComponente.vue";
-    // import Renderizado from "./Renderizado.vue";
-    // import Eventos from "./Eventos.vue";
-    import Comunication from "./Comunication.vue";
+    // import UnComponente  from "./UnComponente.vue";
+    // import Renderizado   from "./Renderizado.vue";
+    // import Eventos       from "./Eventos.vue";
+    // import Comunication  from "./Comunication.vue";
+    import SlotComponent from "./SlotComponent.vue";
 
     export default vue.defineComponent( {
         name : "App",
 
+        props : {
+
+            numero : Number as vue.PropType<number>,
+        },
+
         components : {
 
-            // UnComponente : UnComponente,
-            // AComponente  : UnComponente,
-            // Renderizado  : Renderizado,
-            // Eventos  : Eventos,
-            Comunication  : Comunication,
+            // UnComponente  : UnComponente,
+            // AComponente   : UnComponente,
+            // Renderizado   : Renderizado,
+            // Eventos       : Eventos,
+            // Comunication  : Comunication,
+            SlotComponent : SlotComponent,
+
         },
 
         data() : Record<string, unknown> {
@@ -105,9 +113,20 @@
 
         <!-- <Eventos /> -->
 
-        <p>Suma : {{ suma }}</p>
+        <!-- <p>Suma : {{ suma }}</p> -->
 
-        <Comunication v-bind:sumando="2" v-on:evento_sumado="updateSuma" v-bind:callback="updateSuma" />
+        <!-- <Comunication v-bind:sumando="2" v-on:evento_sumado="updateSuma" v-bind:callback="updateSuma" /> -->
+
+        <SlotComponent></SlotComponent>
+
+        <SlotComponent>
+            <p>Soy el papa y meto mi contenido</p>
+        </SlotComponent>
+
+        <SlotComponent>
+            <p>Soy el papa y meto mi contenido</p>
+            <template v-slot:footer><p>Soy papa y este es mi footer</p></template>
+        </SlotComponent>
 
     </div>
 
