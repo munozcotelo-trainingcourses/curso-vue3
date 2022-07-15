@@ -113,19 +113,20 @@
 
         <!-- <Eventos /> -->
 
-        <!-- <p>Suma : {{ suma }}</p> -->
+        <p>Suma : {{ suma }}</p>
 
         <!-- <Comunication v-bind:sumando="2" v-on:evento_sumado="updateSuma" v-bind:callback="updateSuma" /> -->
 
         <SlotComponent></SlotComponent>
 
         <SlotComponent>
-            <p>Soy el papa y meto mi contenido</p>
+            <p>Soy el papa y meto mi contenido
+            <button v-on:click="updateSuma( 17)">Dale que soy yo</button></p>
         </SlotComponent>
 
         <SlotComponent>
             <p>Soy el papa y meto mi contenido</p>
-            <template v-slot:footer><p>Soy papa y este es mi footer</p></template>
+            <template v-slot:footer="pipe"><p>Soy papa y este es mi footer <strong>{{ pipe }}</strong></p></template>
         </SlotComponent>
 
     </div>

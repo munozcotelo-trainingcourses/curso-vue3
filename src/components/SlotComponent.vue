@@ -12,7 +12,8 @@
         data() : Record<string, unknown>{
 
             return {
-                name : "",
+                name    : "hola me llamo SlotComponent",
+                surname : "mi apellido",
             };
 
         },
@@ -55,7 +56,7 @@
 
         <div>
             <h3>Para mas de un slot, hay que dar nombre</h3>
-            <slot name="footer">
+            <slot name="footer" v-bind:roger="name" v-bind:pau="surname">
                 <h4>Footer por defecto para el padre</h4>
             </slot>
         </div>
