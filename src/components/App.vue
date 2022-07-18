@@ -9,9 +9,10 @@
     // import SlotComponent from "./SlotComponent.vue";
     // import ComponenteUno from "./ComponenteUno.vue";
     // import ComponenteDos from "./ComponenteDos.vue";
-    import MonoRootComponent from "./MonoRootComponent.vue";
-    import MultiRootComponent from "./MultiRootComponent.vue";
-    import NoAtributos from "./NoAtributos.vue";
+    // import MonoRootComponent from "./MonoRootComponent.vue";
+    // import MultiRootComponent from "./MultiRootComponent.vue";
+    // import NoAtributos from "./NoAtributos.vue";
+    import Hijo1 from "./Hijo1.vue";
 
     export default vue.defineComponent( {
         name : "App",
@@ -31,9 +32,10 @@
             // SlotComponent : SlotComponent,
             // ComponenteUno : ComponenteUno,
             // ComponenteDos : ComponenteDos,
-            MonoRootComponent : MonoRootComponent,
-            MultiRootComponent : MultiRootComponent,
-            NoAtributos : NoAtributos,
+            // MonoRootComponent : MonoRootComponent,
+            // MultiRootComponent : MultiRootComponent,
+            // NoAtributos : NoAtributos,
+            Hijo1 : Hijo1,
 
         },
 
@@ -154,23 +156,25 @@
         <!--  -->
         <!-- <button v-on:click="componentClick">Cambio el componente</button> -->
 
-        <MonoRootComponent
-            tag="monoroot"
-            notag="no_tag"
-            class="uno dos"
-        />
+        <!-- <MonoRootComponent -->
+        <!--     tag="monoroot" -->
+        <!--     notag="no_tag" -->
+        <!--     class="uno dos" -->
+        <!-- /> -->
+        <!--  -->
+        <!-- <MultiRootComponent -->
+        <!--     tag="multiroot" -->
+        <!--     notag="no_tag" -->
+        <!--     class="uno dos" -->
+        <!-- /> -->
+        <!--  -->
+        <!-- <NoAtributos -->
+        <!--     tag="noattrs" -->
+        <!--     notag="no_tag" -->
+        <!--     class="uno dos" -->
+        <!-- /> -->
 
-        <MultiRootComponent
-            tag="multiroot"
-            notag="no_tag"
-            class="uno dos"
-        />
-
-        <NoAtributos
-            tag="noattrs"
-            notag="no_tag"
-            class="uno dos"
-        />
+        <Hijo1/>
 
     </div>
 
