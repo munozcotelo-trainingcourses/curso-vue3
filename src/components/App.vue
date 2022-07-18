@@ -7,8 +7,11 @@
     // import Eventos       from "./Eventos.vue";
     // import Comunication  from "./Comunication.vue";
     // import SlotComponent from "./SlotComponent.vue";
-    import ComponenteUno from "./ComponenteUno.vue";
-    import ComponenteDos from "./ComponenteDos.vue";
+    // import ComponenteUno from "./ComponenteUno.vue";
+    // import ComponenteDos from "./ComponenteDos.vue";
+    import MonoRootComponent from "./MonoRootComponent.vue";
+    import MultiRootComponent from "./MultiRootComponent.vue";
+    import NoAtributos from "./NoAtributos.vue";
 
     export default vue.defineComponent( {
         name : "App",
@@ -26,8 +29,11 @@
             // Eventos       : Eventos,
             // Comunication  : Comunication,
             // SlotComponent : SlotComponent,
-            ComponenteUno : ComponenteUno,
-            ComponenteDos : ComponenteDos,
+            // ComponenteUno : ComponenteUno,
+            // ComponenteDos : ComponenteDos,
+            MonoRootComponent : MonoRootComponent,
+            MultiRootComponent : MultiRootComponent,
+            NoAtributos : NoAtributos,
 
         },
 
@@ -40,7 +46,7 @@
                 // titulo      : 0,
                 // atributo    : "id",
                 // suma        : 0,
-                componentName : "ComponenteUno",
+                // componentName : "ComponenteUno",
 
             };
 
@@ -138,15 +144,33 @@
         <!--     <template v-slot:footer="pipe"><p>Soy papa y este es mi footer <strong>{{ pipe }}</strong></p></template> -->
         <!-- </SlotComponent> -->
 
-        <p>Sin keep-alive</p>
-        <component v-bind:is="componentName" />
+        <!-- <p>Sin keep-alive</p> -->
+        <!-- <component v-bind:is="componentName" /> -->
+        <!--  -->
+        <!-- <p>Con keep-alive</p> -->
+        <!-- <keep-alive> -->
+        <!--     <component v-bind:is="componentName" /> -->
+        <!-- </keep-alive> -->
+        <!--  -->
+        <!-- <button v-on:click="componentClick">Cambio el componente</button> -->
 
-        <p>Con keep-alive</p>
-        <keep-alive>
-            <component v-bind:is="componentName" />
-        </keep-alive>
+        <MonoRootComponent
+            tag="monoroot"
+            notag="no_tag"
+            class="uno dos"
+        />
 
-        <button v-on:click="componentClick">Cambio el componente</button>
+        <MultiRootComponent
+            tag="multiroot"
+            notag="no_tag"
+            class="uno dos"
+        />
+
+        <NoAtributos
+            tag="noattrs"
+            notag="no_tag"
+            class="uno dos"
+        />
 
     </div>
 
