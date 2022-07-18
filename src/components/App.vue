@@ -7,8 +7,9 @@
     // import Eventos       from "./Eventos.vue";
     // import Comunication  from "./Comunication.vue";
     // import SlotComponent from "./SlotComponent.vue";
-    import ComponenteUno from "./ComponenteUno.vue";
-    import ComponenteDos from "./ComponenteDos.vue";
+    // import ComponenteUno from "./ComponenteUno.vue";
+    // import ComponenteDos from "./ComponenteDos.vue";
+    import Hijo1 from "./Hijo1.vue";
 
     export default vue.defineComponent( {
         name : "App",
@@ -26,8 +27,9 @@
             // Eventos       : Eventos,
             // Comunication  : Comunication,
             // SlotComponent : SlotComponent,
-            ComponenteUno : ComponenteUno,
-            ComponenteDos : ComponenteDos,
+            // ComponenteUno : ComponenteUno,
+            // ComponenteDos : ComponenteDos,
+            Hijo1 : Hijo1,
 
         },
 
@@ -141,12 +143,13 @@
         <p>Sin keep-alive</p>
         <component v-bind:is="componentName" />
 
-        <p>Con keep-alive</p>
+        <ComponenteUno tag="soy_un_tag" fake-1="fake-1" fake-2="fake-2"/>
         <keep-alive>
             <component v-bind:is="componentName" />
         </keep-alive>
-
         <button v-on:click="componentClick">Cambio el componente</button>
+
+        <Hijo1/>
 
     </div>
 

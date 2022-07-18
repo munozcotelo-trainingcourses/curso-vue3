@@ -6,8 +6,13 @@
 
         name : "ComponenteUno",
 
+        props : {
+
+            tag : String as vue.PropType<string>,
+        },
+
         created() : void {
-            console.info( "ComponentUno created" );
+            console.info( "ComponentUno created", this.$attrs );
         },
 
         data() : Record<string, unknown> {
