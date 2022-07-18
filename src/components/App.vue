@@ -6,7 +6,9 @@
     // import Renderizado   from "./Renderizado.vue";
     // import Eventos       from "./Eventos.vue";
     // import Comunication  from "./Comunication.vue";
-    import SlotComponent from "./SlotComponent.vue";
+    // import SlotComponent from "./SlotComponent.vue";
+    import ComponenteUno from "./ComponenteUno.vue";
+    import ComponenteDos from "./ComponenteDos.vue";
 
     export default vue.defineComponent( {
         name : "App",
@@ -23,7 +25,9 @@
             // Renderizado   : Renderizado,
             // Eventos       : Eventos,
             // Comunication  : Comunication,
-            SlotComponent : SlotComponent,
+            // SlotComponent : SlotComponent,
+            ComponenteUno : ComponenteUno,
+            ComponenteDos : ComponenteDos,
 
         },
 
@@ -32,10 +36,11 @@
             return {
 
                 // contador : 0,
-                clicks      : 0,
-                titulo      : 0,
-                atributo    : "id",
-                suma        : 0,
+                // clicks      : 0,
+                // titulo      : 0,
+                // atributo    : "id",
+                // suma        : 0,
+                componentName : "ComponenteUno",
 
             };
 
@@ -66,17 +71,21 @@
 
         methods : {
 
-            userClick() : void {
-                this.clicks +=1;
-            },
+            // userClick() : void {
+            //     this.clicks +=1;
+            // },
+            //
+            // updateSuma( data : number ) : void {
+            //     console.info( "this", this );
+            //     this.suma = data;
+            // },
+            //
+            // changeAtributo() : void {
+            //     this.atributo = ( this.atributo === "id" ) ? "class" : "id"
+            // },
 
-            changeAtributo() : void {
-                this.atributo = ( this.atributo === "id" ) ? "class" : "id"
-            },
-
-            updateSuma( data : number ) : void {
-                console.info( "this", this );
-                this.suma = data;
+            componentClick() : void {
+                this.componentName = ( this.componentName === "ComponenteUno" ) ? "ComponenteDos" : "ComponenteUno";
             },
 
         },
@@ -113,21 +122,31 @@
 
         <!-- <Eventos /> -->
 
-        <p>Suma : {{ suma }}</p>
+        <!-- <p>Suma : {{ suma }}</p> -->
 
         <!-- <Comunication v-bind:sumando="2" v-on:evento_sumado="updateSuma" v-bind:callback="updateSuma" /> -->
 
-        <SlotComponent></SlotComponent>
+        <!-- <SlotComponent></SlotComponent> -->
+        <!--  -->
+        <!-- <SlotComponent> -->
+        <!--     <p>Soy el papa y meto mi contenido -->
+        <!--     <button v-on:click="updateSuma( 17)">Dale que soy yo</button></p> -->
+        <!-- </SlotComponent> -->
+        <!--  -->
+        <!-- <SlotComponent> -->
+        <!--     <p>Soy el papa y meto mi contenido</p> -->
+        <!--     <template v-slot:footer="pipe"><p>Soy papa y este es mi footer <strong>{{ pipe }}</strong></p></template> -->
+        <!-- </SlotComponent> -->
 
-        <SlotComponent>
-            <p>Soy el papa y meto mi contenido
-            <button v-on:click="updateSuma( 17)">Dale que soy yo</button></p>
-        </SlotComponent>
+        <p>Sin keep-alive</p>
+        <component v-bind:is="componentName" />
 
-        <SlotComponent>
-            <p>Soy el papa y meto mi contenido</p>
-            <template v-slot:footer="pipe"><p>Soy papa y este es mi footer <strong>{{ pipe }}</strong></p></template>
-        </SlotComponent>
+        <p>Con keep-alive</p>
+        <keep-alive>
+            <component v-bind:is="componentName" />
+        </keep-alive>
+
+        <button v-on:click="componentClick">Cambio el componente</button>
 
     </div>
 
