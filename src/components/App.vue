@@ -20,7 +20,9 @@
             return {
 
                 // contador : 0,
-                clicks : 0,
+                clicks      : 0,
+                titulo      : 0,
+                atributo    : "id",
 
             };
 
@@ -42,12 +44,21 @@
             //     this.contador +=1;
             // }, 2000 );
 
+            setInterval( () => {
+                this.titulo +=1;
+            }, 1000 );
+
+
         },
 
         methods : {
 
             userClick() : void {
                 this.clicks +=1;
+            },
+
+            changeAtributo() : void {
+                this.atributo = ( this.atributo === "id" ) ? "class" : "id"
             },
 
         },
@@ -64,7 +75,16 @@
 
         <!-- <p>Mis propios datos: contador = {{ contador }}</p> -->
 
-        <p>Clicks del usuario: {{ clicks }}<button v-on:click="userClick()"> Haz click</button></p>
+        <p v-bind:[atributo]="`element-${ titulo }`">
+            Clicks del usuario: {{ clicks }}
+            <strong><span v-bind:title="`titulo-${ titulo }`">coloca el raton encima para ver el title. Quita y pon para ver que cambia</span></strong>
+            <button v-on:click="userClick()"> Haz click</button>
+        </p>
+        <p>
+            El atributo del parrafo anterior es {{ atributo }} <strong>Mira en el inspector de elemento para comprobar el cambio</strong>
+            <br/>
+            <button v-on:click="changeAtributo()">Click para cambiar el atributo</button>
+        </p>
 
         <!-- <UnComponente aText="Soy un texto" v-bind:aNumber="5"/> -->
         <!-- <AComponente aText="Soy otro texto" v-bind:aNumber="50"></AComponente> -->
