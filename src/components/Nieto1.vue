@@ -29,7 +29,7 @@
 
         },
 
-        inject:  [ "var_estado_reactivo", "obj_estado" ],
+        inject:  [ "var_estado_reactivo", "obj_estado", "var_ref_reactivo" ],
 
         provide() : Record<string, unknown> {
 
@@ -50,8 +50,9 @@
         <h2 class="static_class" v-bind:class="{ claseA: flagA, claseB : flagB, 'hola-mundo' : flagC }">Nieto1</h2>
         <h2 class="static_class" v-bind:class=objClass>Nieto1</h2>
         <ul>
-            <li>{{ var_estado_reactivo }}</li>
-            <li>{{ obj_estado }}</li>
+            <li> var_estado_reactivo {{ var_estado_reactivo }}</li>
+            <li> obj_estado {{ obj_estado }}</li>
+            <li> var_ref_reactivo {{ var_ref_reactivo }}</li>
         </ul>
         <hr/>
         <Bisnieto1/>
