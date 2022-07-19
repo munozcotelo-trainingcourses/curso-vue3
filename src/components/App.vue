@@ -13,7 +13,8 @@
     // import MultiRootComponent from "./MultiRootComponent.vue";
     // import NoAtributos from "./NoAtributos.vue";
     // import Hijo1 from "./Hijo1.vue";
-    import TemplateRef from "./TemplateRef.vue";
+    // import TemplateRef from "./TemplateRef.vue";
+    import Formularios from "./Formularios.vue";
 
     export default vue.defineComponent( {
         name : "App",
@@ -37,7 +38,8 @@
             // MultiRootComponent : MultiRootComponent,
             // NoAtributos : NoAtributos,
             // Hijo1 : Hijo1,
-            TemplateRef : TemplateRef,
+            // TemplateRef : TemplateRef,
+            Formularios : Formularios,
 
         },
 
@@ -178,7 +180,9 @@
 
         <!-- <Hijo1/> -->
 
-        <TemplateRef/>
+        <!-- <TemplateRef/> -->
+
+        <Formularios/>
 
     </div>
 
