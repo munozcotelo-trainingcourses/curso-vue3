@@ -12,7 +12,8 @@
     // import MonoRootComponent from "./MonoRootComponent.vue";
     // import MultiRootComponent from "./MultiRootComponent.vue";
     // import NoAtributos from "./NoAtributos.vue";
-    import Hijo1 from "./Hijo1.vue";
+    // import Hijo1 from "./Hijo1.vue";
+    import TemplateRef from "./TemplateRef.vue";
 
     export default vue.defineComponent( {
         name : "App",
@@ -35,7 +36,8 @@
             // MonoRootComponent : MonoRootComponent,
             // MultiRootComponent : MultiRootComponent,
             // NoAtributos : NoAtributos,
-            Hijo1 : Hijo1,
+            // Hijo1 : Hijo1,
+            TemplateRef : TemplateRef,
 
         },
 
@@ -174,7 +176,9 @@
         <!--     class="uno dos" -->
         <!-- /> -->
 
-        <Hijo1/>
+        <!-- <Hijo1/> -->
+
+        <TemplateRef/>
 
     </div>
 
