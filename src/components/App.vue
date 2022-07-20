@@ -16,7 +16,8 @@
     // import NoAtributos from "./NoAtributos.vue";
     // import Hijo1 from "./Hijo1.vue";
     // import TemplateRef from "./TemplateRef.vue";
-    import Formularios from "./Formularios.vue";
+    // import Formularios from "./Formularios.vue";
+    import TeleportComponent from "./TeleportComponent.vue";
 
     export default vue.defineComponent( {
         name : "App",
@@ -47,7 +48,8 @@
             // NoAtributos : NoAtributos,
             // Hijo1 : Hijo1,
             // TemplateRef : TemplateRef,
-            Formularios : Formularios,
+            // Formularios : Formularios,
+            TeleportComponent : TeleportComponent,
 
         },
 
@@ -195,10 +197,11 @@
 
         <!-- <Formularios/> -->
 
+        <!-- <p v-amgarcia:paramDos.reverse.uppercase="argValueForDirective">Lo cambia la directiva</p> -->
+        <!-- <p v-amgarcia:[argNameForDirective]="'a string value'">Lo cambia la directiva</p> -->
+        <!-- <p v-amgarcia:[argNameForDirective]="{ k1: 10, k2: 20 }">Lo cambia la directiva</p> -->
 
-        <p v-amgarcia:paramDos.reverse.uppercase="argValueForDirective">Lo cambia la directiva</p>
-        <p v-amgarcia:[argNameForDirective]="'a string value'">Lo cambia la directiva</p>
-        <p v-amgarcia:[argNameForDirective]="{ k1: 10, k2: 20 }">Lo cambia la directiva</p>
+        <TeleportComponent/>
 
     </div>
 

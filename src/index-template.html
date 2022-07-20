@@ -11,6 +11,14 @@
 
     <body>
 
+        <div id="teleport-test"> </div>
+
+        <div id="teleport-test-A" class="orangeBorder">
+        </div>
+
+        <div id="teleport-test-B" class="blueBorder">
+        </div>
+
         <div id="bootstrap"></div>
         <% for (key in htmlWebpackPlugin.files.js) { %>
         <script type="text/javascript" src=".<%= htmlWebpackPlugin.files.js[key] %>"></script>
