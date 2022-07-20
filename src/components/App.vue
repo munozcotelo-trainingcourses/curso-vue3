@@ -2,6 +2,8 @@
 
     import * as vue from "vue";
 
+    import { amgarciaDirective } from "./../directives/amgarcia-directive";
+
     // import UnComponente  from "./UnComponente.vue";
     // import Renderizado   from "./Renderizado.vue";
     // import Eventos       from "./Eventos.vue";
@@ -22,6 +24,12 @@
         props : {
 
             numero : Number as vue.PropType<number>,
+        },
+
+        directives: {
+
+            amgarcia : amgarciaDirective,
+
         },
 
         components : {
