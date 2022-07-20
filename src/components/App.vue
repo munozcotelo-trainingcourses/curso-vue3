@@ -17,7 +17,8 @@
     // import Hijo1 from "./Hijo1.vue";
     // import TemplateRef from "./TemplateRef.vue";
     // import Formularios from "./Formularios.vue";
-    import TeleportComponent from "./TeleportComponent.vue";
+    // import TeleportComponent from "./TeleportComponent.vue";
+    import MixinComponent from "./MixinComponent.vue";
 
     export default vue.defineComponent( {
         name : "App",
@@ -49,7 +50,8 @@
             // Hijo1 : Hijo1,
             // TemplateRef : TemplateRef,
             // Formularios : Formularios,
-            TeleportComponent : TeleportComponent,
+            // TeleportComponent : TeleportComponent,
+            MixinComponent : MixinComponent,
 
         },
 
@@ -201,7 +203,9 @@
         <!-- <p v-amgarcia:[argNameForDirective]="'a string value'">Lo cambia la directiva</p> -->
         <!-- <p v-amgarcia:[argNameForDirective]="{ k1: 10, k2: 20 }">Lo cambia la directiva</p> -->
 
-        <TeleportComponent/>
+        <!-- <TeleportComponent/> -->
+
+        <MixinComponent/>
 
     </div>
 

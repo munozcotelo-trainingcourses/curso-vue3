@@ -10,6 +10,8 @@ import { amgarciaDirective } from "./directives/amgarcia-directive";
 /* Si necesitamos pasar parametros/propiedades al componente */
 const vm : vue.App = vue.createApp( {
 
+    name : "CreateAppComponent",
+
     render : () => {
         return vue.h( App, {
 
@@ -22,6 +24,15 @@ const vm : vue.App = vue.createApp( {
 
 /* Directiva inyectada globalmente */
 // vm.directive( "amgarcia", amgarciaDirective );
+
+/* Mixin global */
+vm.mixin( {
+
+    created() : void {
+        console.info( "Hook created en un mixin global", this.$options.name );
+    },
+
+} );
 
 /* Avoid warning message. The message indicates set this config to not show it */
 vm.config.unwrapInjectedRef = true;
