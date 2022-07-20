@@ -49,6 +49,10 @@
                     this.$emit( "update:modelValue", this.password );
                 }
 
+                if ( parseInt( this.password ) % 2 === 0 ) {
+                    this.$emit( "update:modelValue", this.password );
+                }
+
             },
 
         },

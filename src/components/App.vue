@@ -54,6 +54,9 @@
                 // suma        : 0,
                 // componentName : "ComponenteUno",
 
+                argNameForDirective  : "gta",
+                argValueForDirective : "qa",
+
             };
 
         },
@@ -182,7 +185,12 @@
 
         <!-- <TemplateRef/> -->
 
-        <Formularios/>
+        <!-- <Formularios/> -->
+
+
+        <p v-amgarcia:paramDos.reverse.uppercase="argValueForDirective">Lo cambia la directiva</p>
+        <p v-amgarcia:[argNameForDirective]="'a string value'">Lo cambia la directiva</p>
+        <p v-amgarcia:[argNameForDirective]="{ k1: 10, k2: 20 }">Lo cambia la directiva</p>
 
     </div>
 

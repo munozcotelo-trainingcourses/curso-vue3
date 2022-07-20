@@ -14,6 +14,9 @@
 
         },
 
+        created() : void {
+        },
+
         data () : Record<string, unknown> {
 
             return {
@@ -21,15 +24,15 @@
                 text_message         : "",
                 area_message         : "",
                 theCheckbox          : false,
-                checkedNames         : [],
+                checkedNames         : [ "Jack" ],
                 theRadio             : "",
                 theSelect            : "",
                 theMultipleSelect    : [],
                 theMultipleSelectFor : [],
                 optionsFor           : [
-                    { text : "Uno"  , value : "One" },
-                    { text : "Dos"  , value : "Two" } ,
-                    { text : "Tres" , value : "Three" },
+                    { text : "une"  , value : "One" },
+                    { text : "Due"  , value : "Two" } ,
+                    { text : "Tre" , value : "Three" },
                 ],
 
                 theCheckboxBind            : "nope",
