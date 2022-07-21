@@ -34,6 +34,8 @@
 
         },
 
+        inject: [ "pluginInfo", "pluginOptions" ],
+
         components : {
 
             // UnComponente  : UnComponente,
@@ -88,6 +90,9 @@
             // setInterval( () => {
             //     this.contador +=1;
             // }, 2000 );
+
+            console.info( "-------", this.methodFromPlugin() );
+
 
             setInterval( () => {
                 this.titulo +=1;
@@ -205,7 +210,11 @@
 
         <!-- <TeleportComponent/> -->
 
-        <MixinComponent/>
+        <MixinComponent v-plugin-directive />
+
+        <p>{{ pluginInfo }}</p>
+
+        <PluginComponent />
 
     </div>
 
