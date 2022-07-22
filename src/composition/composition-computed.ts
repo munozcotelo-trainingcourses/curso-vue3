@@ -20,6 +20,9 @@ function compositionComputed() : ICompositionComputed {
         console.info( "click here" );
     }
 
+    vue.watch( dataReactivo, ( newValue : number, oldValue : number ) => {
+        console.info( `En el watch de 'dataReactivo' newValue : ${ newValue }, oldValue : ${ oldValue }` );
+    } );
 
     return {
 

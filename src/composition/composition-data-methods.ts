@@ -23,13 +23,22 @@ function compositionDataMethods() : ICompositionDataMethods {
 
     } );
 
+    vue.watch( [ dataReactivo, objReactivo ], ( newValue : [ number, Record<string, number> ], oldValue : [ number, Record<string, number> ] ) => {
+        console.info( `En el watch de 'dataReactivo y objReactivo' newValue : ${ JSON.stringify( newValue ) }, oldValue : ${ JSON.stringify( oldValue ) }` );
+    } );
+
     setTimeout( () => {
 
         dataNoReactivo += 1000;
         dataReactivo.value += 1000;
-        objReactivo.key1 += 1000;
 
     }, 2000 );
+
+    setTimeout( () => {
+
+        objReactivo.key1 += 1000;
+
+    }, 3000 );
 
     return {
 
