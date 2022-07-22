@@ -3,6 +3,7 @@
     import * as vue from "vue";
 
     import { compositionDataMethods } from "./../composition/composition-data-methods";
+    import { compositionComputed } from "./../composition/composition-computed";
 
     export default vue.defineComponent( {
 
@@ -54,6 +55,7 @@
             }
 
             const { dataNoReactivo : noReactivo, dataReactivo : reactivo, objReactivo } : ReturnType<typeof compositionDataMethods> = compositionDataMethods();
+            const { computada, changeParaComputada } : ReturnType<typeof compositionComputed> = compositionComputed();
 
             return {
 
@@ -61,6 +63,8 @@
                 noReactivo  : noReactivo,
                 reactivo    : reactivo,
                 objReactivo : objReactivo,
+                computada,
+                changeParaComputada,
 
             };
 
@@ -84,6 +88,7 @@
             <p>Data no reactivo : {{ noReactivo }}</p>
             <p>Data reactivo : {{ reactivo }}</p>
             <p>Obj reactivo : {{ objReactivo }}</p>
+            <p>Computada : {{ computada }}</p>
         </div>
 
         <slot>Slot para padre</slot>
@@ -93,6 +98,7 @@
         <br/>
 
         <button v-on:click="doClick()">Click</button>
+        <button v-on:click="changeParaComputada()">Click para computada</button>
 
     </div>
 
