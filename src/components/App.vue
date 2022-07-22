@@ -18,7 +18,8 @@
     // import TemplateRef from "./TemplateRef.vue";
     // import Formularios from "./Formularios.vue";
     // import TeleportComponent from "./TeleportComponent.vue";
-    import MixinComponent from "./MixinComponent.vue";
+    // import MixinComponent from "./MixinComponent.vue";
+    import CompositionApiComponent from "./CompositionApiComponent.vue";
 
     export default vue.defineComponent( {
         name : "App",
@@ -34,7 +35,7 @@
 
         },
 
-        inject: [ "pluginInfo", "pluginOptions" ],
+        // inject: [ "pluginInfo", "pluginOptions" ],
 
         components : {
 
@@ -53,7 +54,8 @@
             // TemplateRef : TemplateRef,
             // Formularios : Formularios,
             // TeleportComponent : TeleportComponent,
-            MixinComponent : MixinComponent,
+            // MixinComponent : MixinComponent,
+            CompositionApiComponent : CompositionApiComponent,
 
         },
 
@@ -70,6 +72,8 @@
 
                 argNameForDirective  : "gta",
                 argValueForDirective : "qa",
+
+                compositionData1 : "hi from App" + Math.random(),
 
             };
 
@@ -91,13 +95,15 @@
             //     this.contador +=1;
             // }, 2000 );
 
-            console.info( "-------", this.methodFromPlugin() );
-
+            // console.info( "-------", this.methodFromPlugin() );
 
             setInterval( () => {
                 this.titulo +=1;
             }, 1000 );
 
+            setInterval( () => {
+                this.compositionData1 = "hi from App " + Math.random();
+            }, 4000 );
 
         },
 
@@ -118,6 +124,11 @@
 
             componentClick() : void {
                 this.componentName = ( this.componentName === "ComponenteUno" ) ? "ComponenteDos" : "ComponenteUno";
+            },
+
+            processEvento1( data : number ) : void {
+                console.info( "click en el hijo", data );
+                console.info( "Referencia", this.$refs.CompositionApiRef );
             },
 
         },
@@ -210,11 +221,28 @@
 
         <!-- <TeleportComponent/> -->
 
-        <MixinComponent v-plugin-directive />
+        <!-- <MixinComponent v-plugin-directive /> -->
 
-        <p>{{ pluginInfo }}</p>
+        <!-- <p>{{ pluginInfo }}</p> -->
 
-        <PluginComponent />
+        <!-- <PluginComponent /> -->
+
+        <CompositionApiComponent
+            tag="uno"
+            v-bind:prop1="compositionData1"
+            prop2="good bye"
+
+            data-attr-1="atributo-1"
+            data-attr-2="atributo-2"
+            id="composition"
+
+            v-on:evento-1="processEvento1"
+
+            ref="CompositionApiRef"
+        >
+            <p>Un slot</p>
+            <template v-slot:slot1>Otro slot</template>
+        </CompositionApiComponent>
 
     </div>
 
