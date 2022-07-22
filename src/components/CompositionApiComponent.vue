@@ -2,6 +2,8 @@
 
     import * as vue from "vue";
 
+    import { compositionDataMethods } from "./../composition/composition-data-methods";
+
     export default vue.defineComponent( {
 
         name : "CompositionApiComponent",
@@ -51,8 +53,15 @@
                 context.emit( "evento-1", 1301 );
             }
 
+            const { dataNoReactivo : noReactivo, dataReactivo : reactivo, objReactivo } : ReturnType<typeof compositionDataMethods> = compositionDataMethods();
+
             return {
-                doClick : doClick,
+
+                doClick     : doClick,
+                noReactivo  : noReactivo,
+                reactivo    : reactivo,
+                objReactivo : objReactivo,
+
             };
 
         },
@@ -70,6 +79,12 @@
     <div class="component">
 
         <h2>Composition Api {{ prop1 }}</h2>
+
+        <div>
+            <p>Data no reactivo : {{ noReactivo }}</p>
+            <p>Data reactivo : {{ reactivo }}</p>
+            <p>Obj reactivo : {{ objReactivo }}</p>
+        </div>
 
         <slot>Slot para padre</slot>
         <slot name="slot1">Slot 1</slot>

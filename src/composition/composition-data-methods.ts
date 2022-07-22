@@ -1,83 +1,44 @@
 import * as vue from "vue";
 
-interface IAmgarciaCompositionApi {
+interface ICompositionDataMethods {
 
-    dataTwo           : vue.Ref<number>;
-    dataThree         : vue.Ref<number>;
-    changeData        : ( () => Promise<void> );
-    aComputedProperty : vue.ComputedRef<string>;
-    dataObject        : Record<string, number>;
+    dataNoReactivo : number;
+    dataReactivo   : vue.Ref<number>;
+    objReactivo    : Record<string, number>;
 
 }
 
-function amgarciaCompositionApi() : IAmgarciaCompositionApi {
+function compositionDataMethods() : ICompositionDataMethods {
 
-    let dataTwo   : vue.Ref<number> = vue.ref<number>( 0 );
-    let dataThree : vue.Ref<number> = vue.ref<number>( 0 );
+    let dataNoReactivo : number = 3;
 
-    /*
-     * Los objetos, de por si, TAMPOCO con reactivos
-     * Hay que utilizar vue.reactive para que lo sean
-     */
-    // let dataObject : Record<string, number> = {
-    let dataObject : Record<string, number> = vue.reactive<Record<string, number>>( {
+    /* tipo primitivo reactivo */
+    let dataReactivo : vue.Ref<number> = vue.ref( 9 );
 
-        k1 : 1,
-        k2 : 2,
-    // };
-    });
+    /* objeto reactivo */
+    let objReactivo : Record<string, number> = vue.reactive<Record<string, number>>( {
 
-    const aComputedProperty : vue.ComputedRef<string> = vue.computed( () => {
-        return `El doble de dataTwo es ${ 2*dataTwo.value }`;
+        key1 : 1,
+        key2 : 2,
+
     } );
 
-    const changeData : ( () => Promise<void> ) = async () : Promise<void> => {
+    setTimeout( () => {
 
-        console.info( "click****************************************" );
-        console.info( "click****************************************" );
-        console.info( "click****************************************" );
-        console.info( "click****************************************" );
-        console.info( "click****************************************" );
+        dataNoReactivo += 1000;
+        dataReactivo.value += 1000;
+        objReactivo.key1 += 1000;
 
-        dataObject.k1 += 10;
-        dataObject.k2 += 20;
-
-        setTimeout( () => {
-
-            // dataTwo.value   += 100;
-            // dataThree.value += 1000;
-
-            dataObject.k1 += 10;
-            dataObject.k2 += 20;
-
-        }, 2000 );
-
-        // setTimeout( () => {
-        //
-        //     dataThree.value += 1000;
-        //
-        // }, 5000 );
-
-        return;
-
-    };
-
-    /* Watch multiple variables at once */
-    vue.watch( [ dataTwo, dataThree ], ( newValue : [ number, number ], oldValue : [ number, number ] ) => {
-        console.info( `En el watch de [ dataTwo, dataThree ] newValue : ${ newValue }, oldValue : ${ oldValue }` );
-    } );
+    }, 2000 );
 
     return {
 
-        aComputedProperty : aComputedProperty,
-        changeData        : changeData,
-        dataTwo           : dataTwo,
-        dataThree         : dataThree,
-        dataObject        : dataObject,
+        dataNoReactivo : dataNoReactivo,
+        dataReactivo   : dataReactivo,
+        objReactivo    : objReactivo,
 
     };
 
-
 };
 
-export { amgarciaCompositionApi };
+export { compositionDataMethods };
