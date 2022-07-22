@@ -4,6 +4,7 @@
 
     import { compositionDataMethods } from "./../composition/composition-data-methods";
     import { compositionComputed } from "./../composition/composition-computed";
+    import { hooksComposition } from "./../composition/composition-hooks";
 
     export default vue.defineComponent( {
 
@@ -56,6 +57,8 @@
 
             const { dataNoReactivo : noReactivo, dataReactivo : reactivo, objReactivo } : ReturnType<typeof compositionDataMethods> = compositionDataMethods();
             const { computada, changeParaComputada } : ReturnType<typeof compositionComputed> = compositionComputed();
+
+            hooksComposition();
 
             return {
 
