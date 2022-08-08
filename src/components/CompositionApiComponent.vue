@@ -2,9 +2,12 @@
 
     import * as vue from "vue";
 
+    import Bisnieto1 from "./Bisnieto1.vue";
+
     import { compositionDataMethods } from "./../composition/composition-data-methods";
-    import { compositionComputed } from "./../composition/composition-computed";
-    import { hooksComposition } from "./../composition/composition-hooks";
+    import { compositionComputed }    from "./../composition/composition-computed";
+    import { hooksComposition }       from "./../composition/composition-hooks";
+    import { provideInject }          from "./../composition/composition-provide-inject";
 
     export default vue.defineComponent( {
 
@@ -12,9 +15,15 @@
 
         props: {
 
-            tag: String as vue.PropType<string>,
-            prop1: String as vue.PropType<string>,
-            prop2: String as vue.PropType<string>,
+            tag   : String as vue.PropType<string>,
+            prop1 : String as vue.PropType<string>,
+            prop2 : String as vue.PropType<string>,
+
+        },
+
+        components : {
+
+            Bisnieto1  : Bisnieto1,
 
         },
 
@@ -58,7 +67,9 @@
             const { dataNoReactivo : noReactivo, dataReactivo : reactivo, objReactivo } : ReturnType<typeof compositionDataMethods> = compositionDataMethods();
             const { computada, changeParaComputada } : ReturnType<typeof compositionComputed> = compositionComputed();
 
-            hooksComposition();
+            // hooksComposition();
+
+            const objProvideInject : ReturnType<typeof provideInject> = provideInject();
 
             return {
 
@@ -66,8 +77,12 @@
                 noReactivo  : noReactivo,
                 reactivo    : reactivo,
                 objReactivo : objReactivo,
+
                 computada,
                 changeParaComputada,
+
+                fakeData          : objProvideInject.fakeData,
+                forCompositionApi : objProvideInject.forCompositionApi,
 
             };
 
@@ -89,9 +104,10 @@
 
         <div>
             <p>Data no reactivo : {{ noReactivo }}</p>
-            <p>Data reactivo : {{ reactivo }}</p>
-            <p>Obj reactivo : {{ objReactivo }}</p>
-            <p>Computada : {{ computada }}</p>
+            <p>Data reactivo    : {{ reactivo }}</p>
+            <p>Obj reactivo     : {{ objReactivo }}</p>
+            <p>Computada        : {{ computada }}</p>
+            <p>forCompositionApi  :  {{ forCompositionApi }}</p>
         </div>
 
         <slot>Slot para padre</slot>
@@ -102,6 +118,9 @@
 
         <button v-on:click="doClick()">Click</button>
         <button v-on:click="changeParaComputada()">Click para computada</button>
+
+        <br/>
+        <Bisnieto1/>
 
     </div>
 

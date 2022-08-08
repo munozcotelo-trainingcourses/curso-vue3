@@ -59,6 +59,19 @@
 
         },
 
+        provide() : Record<string, unknown> {
+
+            const me : any = this;
+
+            return {
+
+                argNameForDirective : this.argNameForDirective,
+                forCompositionApi   : vue.computed( () => me.compositionData1 ),
+
+            };
+
+        },
+
         data() : Record<string, unknown> {
 
             return {

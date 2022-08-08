@@ -8,13 +8,13 @@
 
         inject:  [ "hardcodedString", "var_estado", "var_estado_reactivo", "obj_estado", "metodo", "var_ref_reactivo" ],
 
-        created() : void {
-            console.info( "var_estado", this.var_estado );
-            // setTimeout( () => {
-            //     console.info( "dos segundo" );
-            //     Reflect.apply( this.metodo, null, [] );
-            // }, 2000 );
-        },
+        // created() : void {
+        //     console.info( "var_estado", this.var_estado );
+        //     // setTimeout( () => {
+        //     //     console.info( "dos segundo" );
+        //     //     Reflect.apply( this.metodo, null, [] );
+        //     // }, 2000 );
+        // },
 
         methods : {
             doClick() : void {
@@ -36,7 +36,7 @@
             <li>hardcodedString {{ hardcodedString }}</li>
             <li>var_estado {{ var_estado }}</li>
             <li>var_estado_reactivo {{ var_estado_reactivo }}</li>
-            <li>var_ref_reactivo {{ var_ref_reactivo }}</li>
+            <!-- <li>var_ref_reactivo {{ var_ref_reactivo }}</li> -->
             <li>obj_estado {{ obj_estado }}</li>
             <li>metodo {{ metodo }}</li>
         </ul>
