@@ -8,6 +8,7 @@
     import { compositionComputed }    from "./../composition/composition-computed";
     import { hooksComposition }       from "./../composition/composition-hooks";
     import { provideInject }          from "./../composition/composition-provide-inject";
+    import { compositionRefs }        from "./../composition/composition-refs";
 
     export default vue.defineComponent( {
 
@@ -71,6 +72,8 @@
 
             const objProvideInject : ReturnType<typeof provideInject> = provideInject();
 
+            const referencia : ReturnType<typeof compositionRefs> = compositionRefs();
+
             return {
 
                 doClick     : doClick,
@@ -84,12 +87,19 @@
                 fakeData          : objProvideInject.fakeData,
                 forCompositionApi : objProvideInject.forCompositionApi,
 
+                referencia : referencia,
+
             };
 
         },
 
         created() : void {
             console.info( "CompositionApiComponent hook created", this );
+        },
+
+        updated() : void {
+            // console.info( this.referencia );
+            console.info( ( this.referencia as HTMLElement ).innerText );
         },
 
     } );
@@ -100,7 +110,7 @@
 
     <div class="component">
 
-        <h2>Composition Api {{ prop1 }}</h2>
+        <h2 ref="referencia">Composition Api {{ prop1 }}</h2>
 
         <div>
             <p>Data no reactivo : {{ noReactivo }}</p>

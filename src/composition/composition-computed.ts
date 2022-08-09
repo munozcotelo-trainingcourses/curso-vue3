@@ -34,4 +34,3 @@ function compositionComputed() : ICompositionComputed {
 };
 
 export { compositionComputed };
-
