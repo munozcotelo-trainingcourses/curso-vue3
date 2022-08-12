@@ -114,9 +114,9 @@
                 this.titulo +=1;
             }, 1000 );
 
-            setInterval( () => {
-                this.compositionData1 = "hi from App " + Math.random();
-            }, 4000 );
+            // setInterval( () => {
+            //     this.compositionData1 = "hi from App " + Math.random();
+            // }, 4000 );
 
         },
 

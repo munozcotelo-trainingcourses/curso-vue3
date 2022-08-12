@@ -87,14 +87,23 @@
                 fakeData          : objProvideInject.fakeData,
                 forCompositionApi : objProvideInject.forCompositionApi,
 
-                referencia : referencia,
+                referencia : referencia.htmlRef,
+                ponerFoco : referencia.ponerFoco,
 
             };
 
         },
 
+        beforeMount() : void {
+            console.info( "beforeMount", this );
+        },
+
         created() : void {
             console.info( "CompositionApiComponent hook created", this );
+        },
+
+        mounted() : void {
+            this.ponerFoco();
         },
 
         updated() : void {
@@ -111,6 +120,7 @@
     <div class="component">
 
         <h2 ref="referencia">Composition Api {{ prop1 }}</h2>
+        <h3 ref="juan">Juan</h3>
 
         <div>
             <p>Data no reactivo : {{ noReactivo }}</p>
